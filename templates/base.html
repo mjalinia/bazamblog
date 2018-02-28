@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>  blog  </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    </head>
+    <body>
+        <div class="container">
+               
+                
+
+
+
+                <div id="main">
+                        <div class="container">
+                          <nav>
+                            <div class="nav-fostrap">
+                              <ul>
+                                <li><a href="/">Home</a></li>
+
+                                {% if not user.is_authenticated %}
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                                {%endif%}
+
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'create' %}">Create post</a></li>
+                                {%endif%}
+
+                                {% if  user.is_authenticated %}
+                                
+                                 <li><a href="javascript:void(0)">  hi {{user.username}} <span class="arrow-down"></span></a>
+                                 <ul class="dropdown">
+                                    
+                                    <li><a href="{% url 'logout'%}">Logout</a></li>
+                                    
+                                  </ul>
+                                </li>
+                                {%endif%}
+                                
+                                {% if not user.is_authenticated %}
+                                 <li><a href="javascript:void(0)">not have account yet??  <span class="arrow-down"></span></a>
+                                 <ul class="dropdown">
+                                    
+                                    <li><a href="{% url 'signup'%}">signup</a></li>
+                                    
+                                  </ul>
+                                </li>
+                                {%endif%}
+
+                            </div>
+                          </nav>
+                          <div class='content'>
+                                {% block content%}
+             
+            
+                                {% endblock content %}
+
+
+
+                                {% if is_paginated %}
+                                  <div class="pagination">
+                                      <span class="page-links">
+                                          {% if page_obj.has_previous %}
+                                              <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                          {% endif %}
+                                          <span class="page-current">
+                                              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                                          </span>
+                                          {% if page_obj.has_next %}
+                                              <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                          {% endif %}
+                                      </span>
+                                  </div>
+                               {% endif %}
+
+
+
+                          </div>
+                      </div>
+                      </div>
+                   
+
+        </div>
+
+
+        
+<link  href="{% static 'js/base.js'%}">
+
+<script type="text/javascript">
+  //تابع اشتراک گذاری را تعریف می کنیم
+    function teleShare() {
+  
+  //خط پایین، یک پنجره باز میکند که از کاربر سوال میکند آیا میخواهد آدرس این صفحه را در تلگرام به اشتراک بگذارد؟
+    var r = confirm("Share the address of this page to Telegram?");
+  
+  // اگر کاربر روی دکمه اوکی کلیک کرد، کاربر را به اپلیکیشن تلگرام هدایت میکنیم.
+  //و ازش میخواهیم که یک چت را برای اشتراک گذاری آدرس انتخاب کند
+      if (r == true) {
+      window.location.replace('https://telegram.me/share/url?text=Custom+Text&url='+window.location.href)
+      }
+    }
+  </script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        
+    </body>
+</html>

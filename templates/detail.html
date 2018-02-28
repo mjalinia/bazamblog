@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+    {% block content %}
+       
+            <div class="post-entry">
+                <h2>{{ postdetail.title }}</h2>
+                <p>{{postdetail.createtime}}</p>
+                <p>{{postdetail.owner}}</p>
+                <p>{{ postdetail.body }}</p>
+                {% if  user.is_authenticated %}
+
+                <a href="{% url 'delete' postdetail.pk %}"> Delete </a>
+                <a href="{% url 'edit' postdetail.pk %}"> Edit </a>
+                {% endif %}
+
+                <a href="#" title="اشتراک گذاری در تلگرام" onclick="teleShare()"> Share to telegram </a>            </div>
+
+       
+    {% endblock content%}
