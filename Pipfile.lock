@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a08d0add40d89070d7b7f0cd60f5e3b4552bda8a13292f97d5e2d84ccc8e3d34"
+            "sha256": "ad0c783551a7f4eea466ead4ed26a2014d28b5155c6ca21371a75d0359f0bd92"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -17,7 +17,9 @@
             "sys_platform": "win32"
         },
         "pipfile-spec": 6,
-        "requires": {},
+        "requires": {
+            "python_version": "3.6"
+        },
         "sources": [
             {
                 "name": "pypi",
@@ -60,6 +62,13 @@
                 "sha256:d60fc3f1e8c3be790fbb67764607bdb7fc529c2f21eb7521bbb017577554c9bc"
             ],
             "version": "==1.2.4"
+        },
+        "gunicorn": {
+            "hashes": [
+                "sha256:75af03c99389535f218cc596c7de74df4763803f7b63eb09d77e92b3956b36c6",
+                "sha256:eee1169f0ca667be05db3351a0960765620dad53f53434262ff8901b68a1b622"
+            ],
+            "version": "==19.7.1"
         },
         "pillow": {
             "hashes": [
