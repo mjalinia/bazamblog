@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 class BlogListView(ListView):
     model = Post
     template_name= 'home.html'
-    paginate_by = 2
+    paginate_by = 4
 
 class BlogDetailVIew(DetailView):
     model = Post

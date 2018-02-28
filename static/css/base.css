@@ -122,7 +122,7 @@
   .title-mobile {
     display: none;
   }
-   @media only screen and (max-width:900px) {
+   @media only screen and (max-width:100px) {
   
   .nav-fostrap {
     background: #fff;
